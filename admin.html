@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin - Mi Grafix</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-4 md:p-6">
 <script>if(prompt("Enter Admin Password for Mi Grafix:")!=="3205"){alert("Wrong Password");location.href="index.html"}</script>
 <div class="max-w-5xl mx-auto bg-white p-6 md:p-8 rounded-xl shadow">
-<h1 class="text-3xl font-bold mb-2">Mi Grafix - Admin Panel</h1>
-<p class="text-gray-500 mb-6">No GitHub Token Needed. Edit & Export JSON to update GitHub.</p>
-<div class="bg-yellow-50 border border-yellow-200 p-4 rounded mb-6 text-sm"><b>How to make changes LIVE for all visitors:</b> 1. Edit here -> 2. Click "Export & Download products.json" -> 3. Upload that file to your GitHub repository (replace old one).</div>
+<h1 class="text-3xl font-bold">Mi Grafix - Admin Panel</h1>
+<p class="text-gray-500 mb-4">Add multiple images from PC + Fixed Import</p>
+<div class="bg-yellow-50 border border-yellow-200 p-4 rounded mb-6 text-sm"><b>How to make LIVE:</b> 1. Edit here -> 2. Click "Export & Download products.json" -> 3. On GitHub, open products.json -> Click Edit Pencil -> Paste new code -> Commit.</div>
 
 <h2 class="font-bold text-xl mb-3">Store Settings</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-<input id="whatsappNumber" class="border p-3 rounded" placeholder="WhatsApp e.g. 923205003348">
-<input id="siteName" class="border p-3 rounded" placeholder="Site Name">
+<input id="whatsappNumber" class="border p-3 rounded" placeholder="923205003348">
+<input id="siteName" class="border p-3 rounded" placeholder="Mi Grafix">
 <button onclick="saveSettings()" class="bg-black text-white py-3 rounded col-span-1 md:col-span-2 font-bold">Save Settings</button>
 </div>
 
 <h2 class="font-bold text-xl mb-3">Add / Edit Product</h2>
 <form id="productForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
 <input id="pName" placeholder="Product Name" required class="border p-3 rounded">
-<input id="pPrice" placeholder="Price (e.g. 1999)" type="number" required class="border p-3 rounded">
-<input id="pCategory" placeholder="Category e.g. Electronics" required class="border p-3 rounded">
-<input id="pImage" placeholder="Image URL https://..." required class="border p-3 rounded">
+<input id="pPrice" placeholder="Price e.g. 1299" type="number" required class="border p-3 rounded">
+<input id="pCategory" placeholder="Category" required class="border p-3 rounded" list="catList">
+<datalist id="catList">
+  <option value="Notebooks & Journals"><option value="Pens & Writing"><option value="Art & Craft"><option value="Desk Organizers"><option value="Paper & Planners">
+</datalist>
+
+<!-- MULTIPLE IMAGE UPLOAD FROM PC -->
+<div class="col-span-1 md:col-span-2 border-2 border-dashed p-4 rounded bg-gray-50">
+  <label class="font-bold text-sm">Product Images from PC (Select 1-5 images)</label>
+  <input type="file" id="pImageFiles" multiple accept="image/*" class="block w-full mt-2 text-sm">
+  <p class="text-xs text-gray-500 mt-1">You can also paste Image URL below if you don\'t want to upload from PC</p>
+  <input id="pImage" placeholder="Or paste Image URL https://..." class="border p-3 rounded w-full mt-2">
+  <div id="preview" class="flex flex-wrap gap-2 mt-3"></div>
+  <button type="button" onclick="clearImages()" class="text-xs text-red-600 mt-2 underline">Clear Images</button>
+</div>
+
 <input id="pDesc" placeholder="Short Description" class="border p-3 rounded col-span-1 md:col-span-2">
 <input type="hidden" id="pId">
 <button type="submit" id="formBtn" class="bg-green-600 text-white py-3 rounded col-span-1 md:col-span-2 font-bold">Add Product</button>
 <button type="button" onclick="resetForm()" class="border py-2 rounded col-span-1 md:col-span-2">Cancel Edit</button>
 </form>
 
-<h2 class="font-bold text-xl mb-3">Your Products - Edit / Delete</h2>
+<h2 class="font-bold text-xl mb-3">Your Products</h2>
 <div id="adminProductList" class="space-y-3"></div>
 
 <div class="mt-8 flex flex-wrap gap-4">
 <button onclick="exportData()" class="bg-blue-600 text-white px-6 py-3 rounded font-bold">⬇️ Export & Download products.json</button>
 <input type="file" id="importFile" accept=".json" class="hidden" onchange="importData(event)">
-<button onclick="document.getElementById(\'importFile\').click()" class="bg-gray-700 text-white px-6 py-3 rounded">Import JSON</button>
+<button onclick="document.getElementById(\'importFile\').click()" class="bg-gray-700 text-white px-6 py-3 rounded">Import JSON (FIXED)</button>
 <button onclick="clearData()" class="bg-red-600 text-white px-6 py-3 rounded">Reset to Default</button>
-<a href="index.html" class="bg-gray-200 px-6 py-3 rounded font-bold">View Store</a>
+<a href="index.html" class="bg-gray-200 px-6 py-3 rounded">View Store</a>
 </div>
 </div>
 <script src="js/data.js"></script>
