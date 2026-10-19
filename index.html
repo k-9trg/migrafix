@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Grafix - Premium Collection</title>
+<title>Mi Grafix - Premium Stationery</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
@@ -13,18 +13,15 @@
   <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <h1 class="text-2xl font-black tracking-tighter"><span class="text-red-600">Mi</span> Grafix</h1>
     <div class="hidden md:flex gap-6 font-medium">
-      <a href="#home" class="hover:text-red-600">Home</a>
-      <a href="#shop" class="hover:text-red-600">Shop</a>
-      <a href="#about" class="hover:text-red-600">About Us</a>
-      <a href="#contact" class="hover:text-red-600">Contact</a>
+      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About Us</a><a href="#contact">Contact</a>
     </div>
     <a href="admin.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Admin</a>
   </nav>
 </header>
 
-<section id="home" class="bg-black text-white text-center py-20 px-4" style="background: linear-gradient(135deg, #000 0%, #333 100%)">
-  <h2 class="text-5xl font-bold mb-4">Welcome to Mi Grafix</h2>
-  <p class="text-gray-300 mb-6 text-lg">Premium Products Across 5 Categories - Direct Order on WhatsApp</p>
+<section id="home" class="bg-black text-white text-center py-20 px-4" style="background: linear-gradient(135deg, #111 0%, #444 100%)">
+  <h2 class="text-5xl font-bold mb-4">Premium Stationery Store</h2>
+  <p class="text-gray-300 mb-6 text-lg">Notebooks, Pens, Art Supplies & Desk Decor - Order on WhatsApp</p>
   <a href="#shop" class="bg-white text-black px-8 py-3 rounded-full font-bold inline-block">Shop Now <i class="fa fa-arrow-right ml-2"></i></a>
 </section>
 
@@ -33,26 +30,31 @@
 </section>
 
 <section id="shop" class="max-w-7xl mx-auto px-4 pb-16">
-  <h3 class="text-3xl font-bold text-center mb-2">Our Products</h3>
-  <p class="text-center text-gray-500 mb-8">Click WhatsApp to order instantly - No payment needed</p>
+  <h3 class="text-3xl font-bold text-center mb-2">Stationery Collection</h3>
+  <p class="text-center text-gray-500 mb-8">Tap image to view gallery - Order via WhatsApp</p>
   <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 </section>
 
 <section id="about" class="bg-white py-16 px-4">
   <div class="max-w-4xl mx-auto text-center">
     <h3 class="text-3xl font-bold mb-4">About Mi Grafix</h3>
-    <p class="text-gray-600 leading-relaxed">Mi Grafix is your one-stop premium store delivering quality products across Pakistan. We handpick the best in Electronics, Fashion, Home & Kitchen, Beauty and Sports. No online payment hassle - just chat with us on WhatsApp and confirm your order. Fast delivery, 100% satisfaction guaranteed.</p>
+    <p class="text-gray-600 leading-relaxed">Mi Grafix is Pakistan\'s favorite stationery destination. We specialize in aesthetic notebooks, premium pens, art & craft supplies, desk organizers and planning essentials. No online payment - Just click "Order on WhatsApp", send us the product and we confirm your order with Cash on Delivery.</p>
   </div>
 </section>
 
 <section id="contact" class="py-16 px-4 text-center bg-gray-900 text-white">
   <h3 class="text-3xl font-bold mb-4">Contact Us</h3>
-  <p>Have questions? Chat with us directly!</p>
-  <p class="mt-3 font-bold text-lg"><i class="fab fa-whatsapp text-green-400"></i> WhatsApp: +92 320 5003348 | Email: support@migrafix.com</p>
-  <a href="https://wa.me/923205003348?text=Hi%20Mi%20Grafix!%20I%20need%20help" target="_blank" class="inline-block mt-4 bg-green-500 px-8 py-3 rounded-full font-bold">Chat on WhatsApp</a>
+  <p class="font-bold text-lg"><i class="fab fa-whatsapp text-green-400"></i> WhatsApp: +92 320 5003348</p>
+  <a href="https://wa.me/923205003348?text=Hi%20Mi%20Grafix!%20I%20need%20help%20with%20stationery" target="_blank" class="inline-block mt-4 bg-green-500 px-8 py-3 rounded-full font-bold">Chat on WhatsApp</a>
 </section>
 
 <footer class="bg-black text-white text-center py-6 text-sm">&copy; 2024 Mi Grafix. All rights reserved.</footer>
+
+<!-- Image Modal -->
+<div id="imgModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="closeModal()">
+  <img id="modalImg" src="" class="max-h-[90vh] max-w-[90vw] rounded-lg">
+</div>
+
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>
